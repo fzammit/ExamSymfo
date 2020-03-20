@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajoutez votre ville{% endblock %}
+{% block title %}Pandemic{% endblock %}
 
+{% block body %}
 
+<h1 class="text-center font-weight-lighter">Ajoutez un Pays</h1>
+
+<div class="container mt-3 text-center mt-5">
+    <div class="row col-6 ml-auto mr-auto">
+        <div class="col">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-mdb-color mt-3">Créer</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

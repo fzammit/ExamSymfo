@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Country;
 use App\Form\CountryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CountryController extends AbstractController
@@ -29,15 +30,27 @@ class CountryController extends AbstractController
     {
     }
 
-        /**
+    /**
      * Affiche le formulaire de création de pays
-     * @Route("/country/new", name="country_new", methods={"GET"})
+     * @Route("/country/new", name="country_new", methods={"GET", "POST"})
      */
-    public function new()
+    public function new(Request $request)
     {
 
         $country = new Country();
         $form = $this->createForm(CountryType::class, $country);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $country = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($country);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('country_index');
+        }
 
         return $this->render('country/form.html.twig', [
             'form' => $form->createView()
