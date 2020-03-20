@@ -3,16 +3,15 @@
 {% block title %}Ajoutez des stats{% endblock %}
 
 {% block body %}
-<div class="container mt-3">
-    <div class="row">
-        <div class="col">
+
+<h1 class="text-center font-weight-lighter mt-5">Ajoutez une stat</h1>
+<div class="d-flex container text-center col-3 mt-5 p-5 shadow-lg rounded">
+    <div class="row p-5 mt-2">
 
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <button class="btn btn-success">Ajoutez</button>
+            <button class="btn btn-white shadow-lg mt-3">Ajoutez</button>
             {{ form_end(form) }}
-
-        </div>
     </div>
 </div>
 {% endblock %}

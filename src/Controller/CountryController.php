@@ -28,6 +28,10 @@ class CountryController extends AbstractController
      */
     public function show(Country $country)
     {
+
+        return $this->render('country/show.html.twig', [
+        'country' => $country
+        ]);
     }
 
     /**
