@@ -3,11 +3,13 @@
 {% block title %}Pandemic{% endblock %}
 
 {% block body %}
-<ul class="list-unstyled text-center list-group col-3 ml-auto mr-auto">
-    {% for country in countries %}
-    <li class="list-group-item mt-5">
-        <a class="blue-grey-text" href="{{ path('country_show', {'id': country.id}) }}">{{country.name}}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class=" row">
+    <ul class="list-unstyled text-center list-group ml-auto mr-auto">
+        {% for country in countries %}
+        <li class="list-group-item mt-5 shadow-lg">
+            <a class="blue-grey-text" href="{{ path('country_show', {'id': country.id}) }}">{{country.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
