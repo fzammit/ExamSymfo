@@ -1,3 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des Pays{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center">{{country.name}}</h1>
+
+<table class="table container">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>contaminés</th>
+            <th>guéris</th>
+            <th>zombifiés</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>{{country.id}}</th>
+            <th>{{country.name}}</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

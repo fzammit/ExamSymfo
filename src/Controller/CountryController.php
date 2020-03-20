@@ -24,20 +24,12 @@ class CountryController extends AbstractController
     }
 
     /**
-     * Affiche un pays
-     * @Route("/country/{country}", name="country_show", methods={"GET"}, requirements={"country"="\d+"})
-     * @param Country $country
+     * @Route("/pays/{id}", name="country_show", methods={"GET"})
      */
-    public function show(Country $country, CountryRepository $countryRepository) : Response
+    public function show(Country $country): Response
     {
-
-        $country = $countryRepository->find($country);
-        $countryStat = $country->getStat($country);
-
         return $this->render('country/show.html.twig', [
             'country' => $country,
-            'stats' => $countryStat
-
         ]);
     }
 
