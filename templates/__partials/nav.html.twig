@@ -18,6 +18,17 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ path('country_new')}}">Créer un pays</a>
                 </div>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Stat
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('app_index') }}">Voir toutes les stats</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('stat_new') }}">Créer une stat</a>
+                </div>
             </li>
 
         </ul>
