@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Country;
 use App\Form\CountryType;
+use App\Repository\CountryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CountryController extends AbstractController
@@ -26,11 +28,16 @@ class CountryController extends AbstractController
      * @Route("/country/{country}", name="country_show", methods={"GET"}, requirements={"country"="\d+"})
      * @param Country $country
      */
-    public function show(Country $country)
+    public function show(Country $country, CountryRepository $countryRepository) : Response
     {
 
+        $country = $countryRepository->find($country);
+        $countryStat = $country->getStat($country);
+
         return $this->render('country/show.html.twig', [
-        'country' => $country
+            'country' => $country,
+            'stats' => $countryStat
+
         ]);
     }
 
