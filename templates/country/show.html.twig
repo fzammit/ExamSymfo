@@ -17,13 +17,15 @@
         </tr>
     </thead>
     <tbody>
+        {% for stats in country.stat %}
         <tr>
             <th>{{country.id}}</th>
             <th>{{country.name}}</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>{{stats.contaminated}}</th>
+            <th>{{stats.healed}}</th>
+            <th>{{stats.zombified}}</th>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 
