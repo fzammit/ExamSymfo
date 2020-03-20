@@ -8,10 +8,12 @@
 <div class="d-flex container text-center col-3 mt-5 p-5 shadow-lg rounded">
     <div class="row p-5 mt-2">
 
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-white shadow-lg mt-3">Ajoutez</button>
-            {{ form_end(form) }}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-white shadow-lg mt-3">Ajoutez</button>
+        {{ form_end(form) }}
     </div>
 </div>
 {% endblock %}
